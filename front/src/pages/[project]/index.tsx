@@ -4,7 +4,6 @@ import fetchDatasProject from "@/utils/fetchDatasProject";
 import fetchDatasArchives from "@/utils/fetchDatasArchives";
 import { ProjectDatas } from "@/types";
 import Link from "next/link";
-import Image from "next/image";
 import { useContext, useEffect, useRef, useState } from "react";
 import Cross from '@/components/svg/cross'
 import { useGSAP } from '@gsap/react'
@@ -19,15 +18,12 @@ const horloge = '<svg viewBox="0 0 73 73" width="18" height="18"><path d="M36.5,
 
 const Project: React.FC<ProjectDatas> = ({ content, seo }) => {
 
-    const { title, form, topics, year, images, format, text, related, listVideo, index, videocode, videourl } = content
+    const { title, form, topics, year, format, text, related, listVideo, index, videocode } = content
     const { site_name } = seo
     const documentationRef = useRef(null);
     const router = useRouter()
     const [textM, setTextM] = useState(text)
     const { setPage } = useContext(SiteContext)
-
-
-    const [activeImage, setActiveImage] = useState(0)
 
     useEffect(() => {
         const header = document.querySelector('.header')
@@ -41,18 +37,6 @@ const Project: React.FC<ProjectDatas> = ({ content, seo }) => {
         setTextM(updatedText);
     }, [text]);
 
-    const handleClickNext = () => {
-
-        if (activeImage + 1 < images.length) { setActiveImage(activeImage + 1) } else { setActiveImage(0) }
-
-    }
-
-    const handleClickPrev = () => {
-
-        if (activeImage - 1 >= 0) { setActiveImage(activeImage - 1) } else { setActiveImage(images.length - 1) }
-
-    }
-
     useGSAP(() => {
         gsap.registerPlugin(ScrollToPlugin)
     });
@@ -65,24 +49,6 @@ const Project: React.FC<ProjectDatas> = ({ content, seo }) => {
                 ease: 'power3.inOut',
             });
         }
-    }
-
-    const scrollToAnchor = (index: number) => {
-
-        if (format !== 'carousel') {
-            const imageTarget = document.querySelector(`#image_scroll-${index}`)
-            console.log(imageTarget)
-            if (imageTarget) {
-                gsap.to(window, {
-                    scrollTo: { y: imageTarget, offsetY: 0 }, // scroll to the element with an offset
-                    duration: 0.5,
-                    ease: 'power3.inOut',
-                });
-            }
-        } else {
-            setActiveImage(index)
-        }
-
     }
 
     const handleNextProject = () => {
