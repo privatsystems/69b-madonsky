@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+html,
+body,
+#root,
+#__next {
+
+    font-family: 'Protocole', serif;
+    font-size: 22px;
+    line-height: 27.5px;
+    letter-spacing: 0.005rem;
+    font-weight: 400;
+
+    @include sizeone {
+
+        font-size: 20px;
+
+    }
+
+}
+
+
+img {
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none;
+    display: block;
+
+}
+
+.under {
+
+    position: relative;
+    width: fit-content;
+
+    .under_sub {
+
+        width: calc(100%);
+        background-color: $gris;
+        height: 0.5px;
+        position: absolute;
+        left: 0px;
+        bottom: -1px;
+        transform: scaleX(1);
+        transform-origin: 0% 0;
+
+        transition: transform 0.3s ease;
+
+
+    }
+
+    &:hover .under_sub,
+    &.active .under_sub {
+
+        transform: scaleX(0);
+        transform-origin: 100% 0;
+
+    }
+
+    &.reverse {
+
+        .under_sub {
+            transform: scaleX(0);
+            transform-origin: 100% 0;
+        }
+
+        &:hover .under_sub,
+        &.active .under_sub {
+
+            transform: scaleX(1);
+            transform-origin: 0% 0;
+
+        }
+
+    }
+
+}
+
+a:hover {
+    color: $noir
+}

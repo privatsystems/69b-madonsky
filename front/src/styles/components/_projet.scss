@@ -1,0 +1,217 @@
+.projet {
+
+    .hero {
+
+        position: fixed;
+        top: 16px;
+        left: 20px;
+        color: black;
+        z-index: 10;
+
+        @include sizeone {
+
+            left: 16px;
+            max-width: calc(100vw - 80px);
+
+        }
+
+        .button_info {
+
+            color: $gris;
+            cursor: pointer;
+
+            &:hover {
+
+                color: black;
+
+            }
+
+            @include sizeone {
+
+                display: none;
+
+            }
+
+        }
+
+    }
+
+    .cross {
+
+        position: fixed;
+        top: 16px;
+        right: 20px;
+        color: $gris;
+        z-index: 1000;
+
+        @include sizeone {
+
+            right: 16px;
+
+        }
+
+        svg {
+
+            line {
+                stroke: $gris;
+            }
+
+            @include sizeone {
+
+                width: 20px;
+                height: 20px;
+
+            }
+
+        }
+
+        &:hover svg line {
+
+            stroke: black;
+
+        }
+
+    }
+
+    .scroller {
+
+        width: 100vw;
+        height: fit-content;
+        padding: 10vh 25vw;
+
+        &_pass {
+
+            margin-top: 20px;
+
+        }
+
+    }
+
+    .images_resume {
+
+        display: flex;
+        width: calc(100vw - 30px);
+        margin: 0px 15px;
+        height: 20px;
+        margin-bottom: 90px;
+        position: relative;
+
+        @include sizeone {
+
+            display: none;
+
+        }
+
+        &-item {
+
+            width: calc((100vw - 30px) / 7);
+            padding: 5px;
+            padding-top: 23px;
+            height: calc((100vw - 30px) / 9);
+            cursor: pointer;
+
+            .number {
+
+                text-align: center;
+                padding-top: 5px;
+
+            }
+
+            .image_wrapper {
+
+                position: relative;
+                height: calc(((100vw - 30px) / 8.5) - 32px);
+
+                img {
+                    object-fit: cover;
+                }
+
+            }
+
+        }
+
+    }
+
+    .nextProject_button {
+
+        position: absolute;
+        top: 12px;
+        right: 5px;
+        cursor: pointer;
+        color: $gris;
+
+        &:hover {
+
+            color: black;
+
+        }
+
+        &.mob {
+
+            display: none;
+
+        }
+
+        @include sizeone {
+
+            position: static;
+            text-align: right;
+            padding: 16px;
+            padding-top: 0px;
+            display: block !important;
+
+        }
+
+    }
+
+    .documentation {
+
+        width: calc(100vw - 40vw);
+        margin: auto;
+        margin-bottom: 35px;
+
+        @include sizeone {
+
+            width: calc(100vw - 32px);
+            margin-top: 30px;
+
+        }
+
+        &_text {
+
+            svg {
+
+                position: relative;
+                top: 1px;
+
+            }
+
+        }
+
+        p {
+
+            margin-bottom: 22px;
+
+            @include sizeone {
+
+                margin-bottom: 20px;
+
+            }
+
+        }
+
+        a {
+
+            color: $gris;
+            cursor: pointer;
+
+            &:hover {
+
+                color: $noir;
+            }
+
+        }
+
+    }
+
+}

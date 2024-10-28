@@ -1,0 +1,11 @@
+@import 'reset';
+@import './mixins/easings';
+@import 'vars';
+@import 'typographies';
+
+// pages
+@import './general';
+@import './components/header';
+@import './components/about';
+@import './components/archive';
+@import './components/projet'

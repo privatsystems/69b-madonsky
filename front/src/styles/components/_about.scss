@@ -1,0 +1,46 @@
+.about {
+
+    margin: 20px;
+    margin-top: 101px;
+    width: calc((100% - 40px) / 2);
+
+    @include sizeone {
+
+        margin: 16px;
+        margin-top: 101px;
+        width: calc(100% - 32px);
+
+    }
+
+    p {
+
+        margin-bottom: 22px;
+
+        @include sizeone {
+
+            margin-bottom: 20px;
+
+        }
+
+    }
+
+    .contact,
+    .pdf {
+
+        display: block;
+
+    }
+
+    a {
+
+        color: $gris;
+        cursor: pointer;
+
+        &:hover {
+
+            color: $noir;
+        }
+
+    }
+
+}

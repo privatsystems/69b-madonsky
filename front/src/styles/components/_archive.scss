@@ -1,0 +1,525 @@
+.navArchive {
+
+    position: fixed;
+    width: fit-content;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    z-index: 1000;
+
+    @include sizeone {
+
+        top: 31px;
+        width: 100vw;
+        left: 0px;
+        transform: translate(0px, 0px);
+
+    }
+
+    .cercle {
+
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        background-color: $gris;
+        margin: 7px;
+        position: relative;
+        top: 3px;
+
+        @include sizeone {
+
+            width: 8px;
+            height: 8px;
+
+        }
+
+
+    }
+
+    ul {
+
+        display: flex;
+        justify-content: center;
+
+    }
+
+    &_item {
+
+        padding: 16px 20px;
+        color: $gris;
+        cursor: pointer;
+        width: 135px;
+        display: flex;
+        text-align: right;
+
+        @include sizeone {
+
+            padding: 16px;
+
+        }
+
+        // &:last-child {
+
+        //     padding-left: 0px;
+
+        //     .cercle {
+
+        //         position: absolute;
+        //         left: 110px;
+
+        //         @include sizeone {
+
+        //             left: 166px;
+
+        //         }
+
+        //     }
+
+        // }
+
+        // &:first-child {
+
+        //     padding-right: 40px;
+        //     justify-content: end;
+
+        //     .cercle {
+
+        //         position: absolute;
+        //         left: 26px;
+
+        //         @include sizeone {
+
+        //             left: 88px;
+
+        //         }
+
+        //     }
+
+        // }
+
+        &:hover {
+
+            color: $noir;
+
+            .cercle {
+
+                background-color: black;
+
+            }
+
+        }
+
+        &.active {
+
+            color: $noir;
+
+            .cercle {
+
+                background-color: black;
+
+            }
+
+        }
+
+    }
+
+}
+
+.table {
+
+    margin: 0px;
+    margin-bottom: 0px;
+
+    .contentTable {
+
+        padding-top: 141px;
+        padding-left: 20px;
+        padding-right: 20px;
+
+        @include sizeone {
+
+            padding-left: 16px;
+            padding-right: 16px;
+
+        }
+
+        &.table_fixed {
+
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100vw;
+            background-color: white;
+            z-index: 1;
+
+        }
+
+    }
+
+
+    &_header,
+    &_line {
+
+        width: calc(100vw - 40px);
+        display: flex;
+        position: relative;
+
+        @include sizeone {
+
+            width: calc(100vw - 32px);
+
+        }
+
+        .title_item,
+        .form_item {
+
+            width: 25%;
+
+        }
+
+        .topics_item {
+
+            width: 40%;
+
+        }
+
+        .year_item {
+
+            width: 10%;
+            text-align: right;
+        }
+
+        &-item {
+
+            position: relative;
+            cursor: pointer;
+            height: 31px;
+            padding: 5px 0px;
+
+        }
+
+        &-icon {
+
+            position: absolute;
+            top: 5px;
+            left: -17px;
+            height: fit-content;
+
+            @include sizeone {
+
+                left: -14px;
+
+            }
+
+            .selector {
+
+                height: 25px;
+
+            }
+
+        }
+
+        .year_item {
+
+            .table_header-icon {
+
+                left: unset;
+                right: 63px;
+
+                @include sizeone {
+
+                    right: 53px;
+
+                }
+
+            }
+        }
+
+        &-image {
+
+            position: absolute;
+            top: 20px;
+            left: 0px;
+            height: 220px;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+
+            @include sizeone {
+
+                display: none;
+
+            }
+
+            img {
+
+                width: auto;
+
+            }
+
+        }
+
+        &:hover {
+
+            .table_line-image {
+
+                opacity: 1;
+
+            }
+
+        }
+
+    }
+
+    &_header {
+
+        &-wrapper {
+
+            width: 100vw;
+            padding-left: 20px;
+            padding-right: 20px;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            z-index: 100;
+            background-color: white;
+
+            @include sizeone {
+
+                padding-left: 16px;
+                padding-right: 16px;
+
+            }
+
+        }
+
+        text-transform: uppercase;
+        border-bottom: 1.85px solid black;
+        padding-bottom: 7px;
+        padding-top: 101px;
+
+        @include sizeone {
+
+
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        &-item {
+
+            &:hover {
+
+                color: $gris;
+
+                @include sizeone {
+
+                    color: black;
+
+                }
+
+            }
+
+            @include sizeone {
+
+                width: fit-content !important;
+                color: $gris;
+
+            }
+
+            &.select {
+
+                @include sizeone {
+
+                    color: black;
+
+                }
+
+            }
+
+        }
+
+    }
+
+    &_line {
+
+        border-bottom: 1.85px solid transparent;
+        line-height: 1;
+
+        @include sizeone {
+
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        &:hover {
+
+            border-bottom: 1.85px solid black;
+            color: black;
+        }
+
+        &-item {
+
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+
+            @include sizeone {
+
+                // width: max-content !important;
+                // display: block;
+                // white-space: nowrap;
+
+                // width: max-content;
+                // -webkit-box-flex: 1;
+                // -ms-flex: 1;
+                // flex: 1;
+                // white-space: nowrap;
+                // overflow: hidden;
+
+            }
+
+            &.title_item {
+
+                @include sizeone {
+
+                    width: max-content !important;
+                    -webkit-box-flex: 1;
+                    -ms-flex: 1;
+                    flex: 1;
+                    white-space: nowrap;
+                    overflow: hidden;
+
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: calc(100% - 4rem + 2px);
+                        height: 100%;
+                        width: 4rem;
+                        background-image: -webkit-gradient(linear, left top, right top, from(transparent), to(#fff));
+                        // background-image: linear-gradient(left, transparent, #000);
+                    }
+
+                }
+
+            }
+
+            &.active {
+
+                @include sizeone {
+                    // width: max-content !important;
+
+                    text-align: right;
+                    width: auto;
+                    margin-left: 0;
+                    -ms-flex-preferred-size: auto;
+                    flex-basis: auto;
+                }
+
+            }
+
+        }
+
+        .title_item {
+
+            @include sizeone {
+                width: fit-content;
+            }
+
+        }
+
+        .form_item,
+        .topics_item,
+        .year_item {
+
+            @include sizeone {
+
+                // position: absolute;
+                right: 0px;
+                top: 0px;
+                width: fit-content;
+                text-align: right;
+                display: none;
+            }
+
+            &.active {
+
+                @include sizeone {
+
+                    display: block;
+
+                }
+
+            }
+
+        }
+    }
+
+}
+
+.grid {
+
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 175px;
+    z-index: -1;
+
+    @include sizeone {
+
+        padding-top: 140px;
+
+    }
+
+    &_item {
+
+        height: calc(100vw / 4.5);
+        width: calc(100vw / 3);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        cursor: pointer;
+
+        @include sizeone {
+
+            height: calc(100vw / 3.5);
+            width: calc(100vw / 2);
+
+        }
+
+        img {
+
+            object-fit: cover;
+            object-position: 50% 50%;
+            height: calc(100vw / 4.5);
+            width: calc(100vw / 3);
+            position: absolute;
+
+            @include sizeone {
+
+                height: calc(100vw / 3.5);
+                width: calc(100vw / 2);
+
+            }
+
+            transition: width 2.5s ease;
+
+
+        }
+
+        &.hover {
+
+            img {
+
+                width: 150%;
+
+            }
+
+        }
+
+    }
+}

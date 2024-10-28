@@ -1,0 +1,64 @@
+/* ------------------------------------------------------------------ */
+/*        FONT FACE DECLARATION
+/* ------------------------------------------------------------------ */
+
+
+@font-face {
+    font-family: 'Protocole';
+    src: url(../assets/fonts/Protocole-Regular.woff2),
+        url(../assets/fonts/Protocole-Regular.woff) format("woff"),
+        url(../assets/fonts/Protocole-Regular.otf) format("opentype"),
+        url(../assets/fonts/Protocole-Regular.ttf) format("truetype");
+    font-style: normal;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'Protocole';
+    src: url(../assets/fonts/Protocole-Italic.woff2),
+        url(../assets/fonts/Protocole-Italic.woff) format("woff"),
+        url(../assets/fonts/Protocole-Italic.otf) format("opentype"),
+        url(../assets/fonts/Protocole-Italic.ttf) format("truetype");
+    font-style: italic;
+    font-weight: 100;
+}
+
+// @font-face {
+//     font-family: 'newpanam';
+//     src: url(../assets/fonts/NewPanamSkyline-Regular.otf);
+//     font-style: normal;
+//     font-weight: 100;
+// }
+
+// @font-face {
+//     font-family: 'roman';
+//     src: url(../assets/fonts/C059-Italic.woff2);
+//     font-style: italic;
+// }
+
+// @font-face {
+//     font-family: 'bold';
+//     src: url(../assets/fonts/C059-Bold.woff2);
+//     font-size: normal;
+// }
+
+// @font-face {
+//     font-family: 'bold';
+//     src: url(../assets/fonts/C059-Bold.woff2);
+//     font-style: italic;
+
+// }
+
+// @font-face {
+//     font-family: 'bat';
+//     src: url(../assets/fonts/SyndicatGroteskFocus-Regular.otf);
+//     font-weight: 100;
+//     font-style: normal;
+// }
+
+// @font-face {
+//     font-family: 'logo';
+//     src: url(../assets/fonts/LogoFocusVF.ttf);
+//     font-weight: 100;
+//     font-style: normal;
+// }
