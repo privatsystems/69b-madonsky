@@ -73,17 +73,31 @@
 
     }
 
-    .scroller {
+    .images_wrapper {
 
         width: 100vw;
-        height: fit-content;
-        padding: 20vh 20vw;
+        height: calc(100vh - 50px);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: nowrap;
 
-        &_pass {
+        .scroller {
 
-            margin-top: 20px;
+            width: 100vw;
+            height: fit-content;
+            padding: 20vh 20vw;
+
+
+            &_pass {
+
+                margin-top: 5px;
+
+            }
+
 
         }
+
 
 
     }
