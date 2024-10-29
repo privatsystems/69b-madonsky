@@ -80,7 +80,7 @@ const Project: React.FC<ProjectDatas> = ({ content, seo }) => {
                         video="1007718657"
                         responsive
                     />
-                    {videocode && <div className='scroller_pass'>{videocode}</div>}
+                    {videocode && <div className='scroller_pass'>Password: {videocode}</div>}
                 </div>
                 <div className='images_resume'>
                     <div className="nextProject_button" onClick={handleNextProject}>next project</div>
