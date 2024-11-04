@@ -75,7 +75,7 @@ const Project: React.FC<ProjectDatas> = ({ content, seo }) => {
                     <h2>{new Date(year).getFullYear()}</h2>
                     <div className='button_info' onClick={scrollToDocumentation}>+ info</div>
                 </div>
-                <div className='images_wrapper'>
+                {videourl && <div className='images_wrapper'>
                     <div className='scroller'>
                         <Vimeo
                             video={videourl}
@@ -83,8 +83,7 @@ const Project: React.FC<ProjectDatas> = ({ content, seo }) => {
                         />
                         {videocode && <div className='scroller_pass'>Password: {videocode}</div>}
                     </div>
-
-                </div>
+                </div>}
                 <div className='images_resume'>
                     <div className="nextProject_button" onClick={handleNextProject}>next project</div>
                 </div>
