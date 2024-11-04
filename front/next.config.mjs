@@ -3,7 +3,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost', 'privat.systems', 'madonsky.privat.systems']
+    domains: ['localhost', 'privat.systems', 'madansky.privat.systems']
   },
 };
 

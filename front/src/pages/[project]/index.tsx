@@ -18,7 +18,7 @@ const horloge = '<svg viewBox="0 0 73 73" width="18" height="18"><path d="M36.5,
 
 const Project: React.FC<ProjectDatas> = ({ content, seo }) => {
 
-    const { title, form, topics, year, format, text, related, listVideo, index, videocode } = content
+    const { title, form, topics, year, format, text, related, listVideo, index, videocode, videourl } = content
     const { site_name } = seo
     const documentationRef = useRef(null);
     const router = useRouter()
@@ -78,7 +78,7 @@ const Project: React.FC<ProjectDatas> = ({ content, seo }) => {
                 <div className='images_wrapper'>
                     <div className='scroller'>
                         <Vimeo
-                            video="1007718657"
+                            video={videourl}
                             responsive
                         />
                         {videocode && <div className='scroller_pass'>Password: {videocode}</div>}

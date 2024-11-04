@@ -2,7 +2,7 @@ import { ArchivesDatas } from '../types';
 
 export default async function fetchDatas(): Promise<ArchivesDatas> {
   try {
-    const response = await fetch(`https://madonsky.privat.systems/projects.json`);
+    const response = await fetch(`https://madansky.privat.systems/projects.json`);
     if (!response.ok) {
       throw new Error(`Network response was not ok. Status: ${response.status} - ${response.statusText}`);
     }
