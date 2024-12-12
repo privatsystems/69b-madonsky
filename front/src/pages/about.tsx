@@ -33,6 +33,10 @@ const About: React.FC<AboutDatas> = ({ content, seo }) => {
                 <a className='contact' href={`mailto:${contact}`} target="_blank" rel="noopener noreferrer">{contact}</a>
                 {pdf && <a className="pdf" href={`${pdf}`} download={`${pdf}`}>Download CV</a>}
             </main>
+            <div className='credits'>
+                <a className='credits_item' href='https://edition.studio' target="_blank" rel="noopener noreferrer">Design by edition.studio</a>
+                <a className='credits_item' href='https://julienprivat.com' target="_blank" rel="noopener noreferrer">Coding by privat.systems</a>
+            </div>
         </>
     );
 }
