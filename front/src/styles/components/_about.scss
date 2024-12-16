@@ -59,6 +59,12 @@
             margin-right: 10px;
             margin-bottom: 20px;
 
+            @include sizeone {
+
+                margin-bottom: 0px;
+
+            }
+
         }
 
         @include sizeone {
