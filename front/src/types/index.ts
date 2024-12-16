@@ -73,6 +73,10 @@ export interface AboutDatas {
 export interface ProjectDatas {
     seo: Header;
     content: Project;
+    videos: {
+        url: string;
+        legend: string | null;
+    }[]
 }
 
 export interface PageProps {

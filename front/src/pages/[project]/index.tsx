@@ -16,7 +16,7 @@ import Vimeo from '@u-wave/react-vimeo';
 
 const horloge = '<svg viewBox="0 0 73 73" width="18" height="18"><path d="M36.5,73C16.37,73,0,56.63,0,36.5S16.37,0,36.5,0s36.5,16.37,36.5,36.5-16.37,36.5-36.5,36.5ZM36.5,8c-15.71,0-28.5,12.79-28.5,28.5s12.79,28.5,28.5,28.5,28.5-12.79,28.5-28.5-12.79-28.5-28.5-28.5Z" /><polygon points="32.78 16.03 32.78 38.11 24.55 46.33 29.86 51.64 40.46 41.03 40.46 16.03 32.78 16.03" /></svg>'
 
-const Project: React.FC<ProjectDatas> = ({ content, seo }) => {
+const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
 
     const { title, form, topics, year, format, text, related, listVideo, index, videocode, videourl } = content
     const { site_name } = seo
@@ -75,15 +75,19 @@ const Project: React.FC<ProjectDatas> = ({ content, seo }) => {
                     <h2>{new Date(year).getFullYear()}</h2>
                     <div className='button_info' onClick={scrollToDocumentation}>+ info</div>
                 </div>
-                {videourl && <div className='images_wrapper'>
-                    <div className='scroller'>
-                        <Vimeo
-                            video={videourl}
-                            responsive
-                        />
-                        {videocode && <div className='scroller_pass'>Password: {videocode}</div>}
-                    </div>
-                </div>}
+                {videos && videos.map((video) => {
+                    return (
+                        <div className='images_wrapper'>
+                            <div className='scroller'>
+                                <Vimeo
+                                    video={video.url}
+                                    responsive
+                                />
+                                {video.legend && <div className='scroller_pass'>{video.legend.replace(/◊/g, horloge)}</div>}
+                            </div>
+                        </div>
+                    )
+                })}
                 <div className='images_resume'>
                     <div className="nextProject_button" onClick={handleNextProject}>next project</div>
                 </div>
@@ -105,6 +109,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         return {
             props: {
                 content: content.content,
+                videos: content.videos,
                 seo: content.seo
             },
             revalidate: 10,
