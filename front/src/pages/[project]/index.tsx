@@ -75,9 +75,9 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
                     <h2>{new Date(year).getFullYear()}</h2>
                     <div className='button_info' onClick={scrollToDocumentation}>+ info</div>
                 </div>
-                {videos && videos.map((video) => {
+                {videos && videos.map((video, index) => {
                     return (
-                        <div className='images_wrapper'>
+                        <div className='images_wrapper' key={`${index}${video.url}`}>
                             <div className='scroller'>
                                 <Vimeo
                                     video={video.url}
