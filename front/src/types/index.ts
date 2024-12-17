@@ -74,7 +74,7 @@ export interface ProjectDatas {
     seo: Header;
     content: Project;
     videos: {
-        url: string;
+        videourl: string;
         legend: string | null;
     }[]
 }

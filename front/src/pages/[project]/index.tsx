@@ -76,11 +76,12 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
                     <div className='button_info' onClick={scrollToDocumentation}>+ info</div>
                 </div>
                 {videos && videos.map((video, index) => {
+                    console.log(video)
                     return (
-                        <div className='images_wrapper' key={`${index}${video.url}`}>
+                        <div className='images_wrapper' key={`${index}${video.videourl}`}>
                             <div className='scroller'>
                                 <Vimeo
-                                    video={video.url}
+                                    video={video.videourl}
                                     responsive
                                 />
                                 {video.legend && <div className='scroller_pass'>{video.legend.replace(/◊/g, horloge)}</div>}
