@@ -88,6 +88,12 @@
             height: fit-content;
             padding: 20vh 20vw;
 
+            @include sizeone {
+
+                padding: 20vh 10vw;
+
+            }
+
 
             &_pass {
 
