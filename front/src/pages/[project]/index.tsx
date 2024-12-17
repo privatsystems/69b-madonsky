@@ -18,7 +18,7 @@ const horloge = '<svg viewBox="0 0 73 73" width="18" height="18"><path d="M36.5,
 
 const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
 
-    const { title, form, topics, year, format, text, related, listVideo, index, videocode, videourl } = content
+    const { title, form, topics, year, format, text, related, listVideo, index } = content
     const { site_name } = seo
     const documentationRef = useRef(null);
     const router = useRouter()
