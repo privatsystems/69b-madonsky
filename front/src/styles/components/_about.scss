@@ -48,32 +48,31 @@
 
     }
 
-}
+    .credits {
 
-.credits {
+        position: absolute;
+        bottom: -135px;
+        left: 0px;
 
-    position: absolute;
-    bottom: -135px;
-    left: 0px;
+        &_item {
 
-    &_item {
+            margin-right: 10px;
+            margin-bottom: 20px;
 
-        margin-right: 10px;
-        margin-bottom: 20px;
+            @include sizeone {
 
-        @include sizeone {
+                margin-bottom: 0px;
 
-            margin-bottom: 0px;
+            }
 
         }
 
-    }
+        @include sizeone {
 
-    @include sizeone {
+            display: flex;
+            flex-direction: column;
 
-        display: flex;
-        flex-direction: column;
-        margin: 10px;
+        }
 
     }
 
