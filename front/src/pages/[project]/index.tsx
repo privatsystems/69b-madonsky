@@ -54,9 +54,6 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
         }
     }
 
-
-    console.log(format(new Date(year), "yyyy"), year, new Date(year))
-
     const handleNextProject = () => {
         // Calculate the index of the next project
         const nextProjectIndex = (index + 1) % listVideo.length;
