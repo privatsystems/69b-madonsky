@@ -12,13 +12,14 @@ import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 import { useRouter } from "next/router";
 import { SiteContext } from "@/context/siteContext";
 import Vimeo from '@u-wave/react-vimeo';
+import { format } from "date-fns";
 
 
 const horloge = '<svg viewBox="0 0 73 73" width="18" height="18"><path d="M36.5,73C16.37,73,0,56.63,0,36.5S16.37,0,36.5,0s36.5,16.37,36.5,36.5-16.37,36.5-36.5,36.5ZM36.5,8c-15.71,0-28.5,12.79-28.5,28.5s12.79,28.5,28.5,28.5,28.5-12.79,28.5-28.5-12.79-28.5-28.5-28.5Z" /><polygon points="32.78 16.03 32.78 38.11 24.55 46.33 29.86 51.64 40.46 41.03 40.46 16.03 32.78 16.03" /></svg>'
 
 const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
 
-    const { title, form, topics, year, format, text, related, listVideo, index } = content
+    const { title, form, topics, year, text, related, listVideo, index } = content
     const { site_name } = seo
     const documentationRef = useRef(null);
     const router = useRouter()
@@ -53,7 +54,8 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
         }
     }
 
-    console.log(new Date(year).getFullYear(), year)
+
+    console.log(format(new Date(year), "yyyy"), year)
 
     const handleNextProject = () => {
         // Calculate the index of the next project
@@ -71,7 +73,7 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
                 <meta key="og_title" property="og:title" content={`${title} | ${site_name}`} />
             </Head>
             <main className='projet'>
-                <Link href='/' className={`cross ${format}-cross`}><Cross /></Link>
+                <Link href='/' className={`cross ${content.format}-cross`}><Cross /></Link>
                 {videos && videos.map((video, index) => {
                     return (
                         <div className='images_wrapper' key={`${index}${video.videourl}`}>
@@ -85,11 +87,11 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
                         </div>
                     )
                 })}
-                <div className={`hero ${format}-hero`}>
+                <div className={`hero ${content.format}-hero`}>
                     <h1>{title}</h1>
                     <h2>{form}</h2>
                     <h2>{topics}</h2>
-                    <h2>{new Date(year).getFullYear()}</h2>
+                    <h2>{format(new Date(year), "yyyy")}</h2>
                     <div className='button_info' onClick={scrollToDocumentation}>+ info</div>
                 </div>
                 <div className='images_resume'>
