@@ -76,18 +76,26 @@
     .images_wrapper {
 
         width: 100vw;
-        height: calc(100vh - 50px);
+        height: calc(100vh - 20px);
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         flex-direction: column;
         flex-wrap: nowrap;
+
+        &:first-of-type {
+
+            justify-content: center;
+
+
+        }
 
         .scroller {
 
             width: 100vw;
             height: fit-content;
-            padding: 15vh 20vw;
+            padding: 0vh 20vw;
             padding-bottom: 5vh;
+
 
             @include sizeone {
 

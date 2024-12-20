@@ -68,13 +68,6 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
             </Head>
             <main className='projet'>
                 <Link href='/' className={`cross ${format}-cross`}><Cross /></Link>
-                <div className={`hero ${format}-hero`}>
-                    <h1>{title}</h1>
-                    <h2>{form}</h2>
-                    <h2>{topics}</h2>
-                    <h2>{new Date(year).getFullYear()}</h2>
-                    <div className='button_info' onClick={scrollToDocumentation}>+ info</div>
-                </div>
                 {videos && videos.map((video, index) => {
                     console.log(video)
                     return (
@@ -89,6 +82,13 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
                         </div>
                     )
                 })}
+                <div className={`hero ${format}-hero`}>
+                    <h1>{title}</h1>
+                    <h2>{form}</h2>
+                    <h2>{topics}</h2>
+                    <h2>{new Date(year).getFullYear()}</h2>
+                    <div className='button_info' onClick={scrollToDocumentation}>+ info</div>
+                </div>
                 <div className='images_resume'>
                     <div className="nextProject_button" onClick={handleNextProject}>next project</div>
                 </div>
