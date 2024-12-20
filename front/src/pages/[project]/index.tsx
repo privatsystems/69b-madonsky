@@ -48,8 +48,12 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
                 duration: 1,
                 ease: 'power3.inOut',
             });
+
+
         }
     }
+
+    console.log(new Date(year).getFullYear(), year)
 
     const handleNextProject = () => {
         // Calculate the index of the next project
@@ -69,7 +73,6 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
             <main className='projet'>
                 <Link href='/' className={`cross ${format}-cross`}><Cross /></Link>
                 {videos && videos.map((video, index) => {
-                    console.log(video)
                     return (
                         <div className='images_wrapper' key={`${index}${video.videourl}`}>
                             <div className='scroller'>
