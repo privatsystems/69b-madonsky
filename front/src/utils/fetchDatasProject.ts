@@ -2,7 +2,7 @@ import { ProjectDatas } from '../types';
 
 export default async function fetchExpoDatas(project: string | string[] | undefined): Promise<ProjectDatas> {
   try {
-    const response = await fetch(`https://madansky.privat.systems/${project}.json`);
+    const response = await fetch(`https://back.madansky.com/${project}.json`);
     if (!response.ok) {
       throw new Error(`Network response was not ok. Status: ${response.status} - ${response.statusText}`);
     }
