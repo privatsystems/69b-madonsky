@@ -24,8 +24,12 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
     const router = useRouter()
     const [textM, setTextM] = useState(text)
     const { setPage } = useContext(SiteContext)
+    const [height, setHeight] = useState(0)
 
     useEffect(() => {
+
+        setHeight(window.innerHeight)
+
         const header = document.querySelector('.header')
         if (header && !header.classList.contains('hide')) header.classList.add('hide')
         setPage('/other')
@@ -90,7 +94,7 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
                     <h2>{year}</h2>
                     <div className='button_info' onClick={scrollToDocumentation}>+ info</div>
                 </div>
-                <div className='images_resume'>
+                <div className='sticky_next' style={{ top: (height / 2) - 27 }}>
                     <div className="nextProject_button" onClick={handleNextProject}>next project</div>
                 </div>
                 <div className='documentation' ref={documentationRef}>
