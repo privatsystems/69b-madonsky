@@ -120,6 +120,15 @@
 
         position: sticky;
         top: 50vw;
+        z-index: 1000000;
+        right: 25px;
+        white-space: nowrap;
+
+        @include sizeone {
+
+            display: none;
+
+        }
 
     }
 

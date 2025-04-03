@@ -72,7 +72,7 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
                 <title>{`${title} | ${site_name}`}</title>
                 <meta key="og_title" property="og:title" content={`${title} | ${site_name}`} />
             </Head>
-            <main className='projet'>
+            <main className={`project ${content.format}`}>
                 <Link href='/' className={`cross ${content.format}-cross`}><Cross /></Link>
                 {videos && videos.map((video, index) => {
                     return (
