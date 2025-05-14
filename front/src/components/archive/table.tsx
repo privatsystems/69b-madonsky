@@ -22,7 +22,7 @@ const Table: React.FC<TableData> = ({ projetsClass, xMouse }) => {
             </div>
             <div className={`contentTable`}>
                 {projetsClass && projetsClass.map((projet: ArchivesItem) => {
-                    if (projet.format == 'scroll') return <TableItem projet={projet} key={`tableItem-${projet.title}`} xMouse={xMouse} />
+                    if (projet.format == 'scroll') return <TableItem projet={projet} key={`tableItem-${projet.title}-${projet.slug}`} xMouse={xMouse} />
                 })}
             </div>
         </div>
