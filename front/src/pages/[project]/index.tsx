@@ -26,6 +26,7 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
     const { setPage } = useContext(SiteContext)
     const [height, setHeight] = useState(0)
 
+    console.log('listvideo', listVideo)
     useEffect(() => {
 
         setHeight(window.innerHeight)

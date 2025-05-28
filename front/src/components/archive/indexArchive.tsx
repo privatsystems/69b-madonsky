@@ -72,7 +72,7 @@ const IndexArchive: React.FC<TableData> = ({ content }) => {
     }, [projets, selectLabelIndex, labelUp]);
 
     return (
-        <div> {/* Add ref to container */}
+        <div>
             {!imagesMode && projetsClass && <Table projetsClass={projetsClass} xMouse={xMouse} />}
             {imagesMode && projetsClass && <Grid projetsClass={projetsClass} />}
         </div>

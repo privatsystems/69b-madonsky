@@ -35,7 +35,7 @@ const Grid: React.FC<GridData> = ({ projetsClass }) => {
             <div className='grid'>
                 {projetsClass && projetsClass.map((projet, index) => {
                     if (projet.format == 'scroll') return <GridItem
-                        key={`grid_item-${projet.title}`}
+                        key={`grid_item-${projet.title}-${projet.slug}-${index}`}
                         projet={projet}
                         index={index}
                         setImageHover={setImageHover}

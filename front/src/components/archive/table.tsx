@@ -16,13 +16,13 @@ const Table: React.FC<TableData> = ({ projetsClass, xMouse }) => {
             <div className='table_header-wrapper'>
                 <div className='table_header'>
                     {labels.map((label, index) => {
-                        return <TableLabelItem label={label} index={index} key={`tableItem-${label}`} />
+                        return <TableLabelItem label={label} index={index} key={`tableItem-${label}-${index}`} />
                     })}
                 </div>
             </div>
             <div className={`contentTable`}>
-                {projetsClass && projetsClass.map((projet: ArchivesItem) => {
-                    if (projet.format == 'scroll') return <TableItem projet={projet} key={`tableItem-${projet.title}-${projet.slug}`} xMouse={xMouse} />
+                {projetsClass && projetsClass.map((projet: ArchivesItem, index: number) => {
+                    if (projet.format == 'scroll') return <TableItem projet={projet} key={`tableItem-${projet.title}-${projet.slug}-${index}`} xMouse={xMouse} />
                 })}
             </div>
         </div>
