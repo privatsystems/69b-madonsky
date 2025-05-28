@@ -62,9 +62,9 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
         // Calculate the index of the next project
         const nextProjectIndex = (index + 1) % listVideo.length;
         const nextProjectSlug = listVideo[nextProjectIndex]; // Get the slug of the next project
-
+        console.log('nextProjectSlug', nextProjectSlug, nextProjectIndex, listVideo.length, index);
         // Use Next.js's router to navigate to the next project's page
-        router.push(`/${nextProjectSlug}`);
+        // router.push(`/${nextProjectSlug}`);
     };
 
     return (
