@@ -9,7 +9,7 @@ import Cross from '@/components/svg/cross'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { SiteContext } from "@/context/siteContext";
 import Vimeo from '@u-wave/react-vimeo';
 
@@ -21,7 +21,7 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
     const { title, form, topics, year, text, related, listVideo, indexVideo } = content
     const { site_name } = seo
     const documentationRef = useRef(null);
-    // const router = useRouter()
+    const router = useRouter()
     const [textM, setTextM] = useState(text)
     const { setPage } = useContext(SiteContext)
     const [height, setHeight] = useState(0)
@@ -64,7 +64,7 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
         const nextProjectSlug = listVideo[nextProjectIndex]; // Get the slug of the next project
         console.log('nextProjectSlug', nextProjectSlug, nextProjectIndex, listVideo.length, indexVideo);
         // Use Next.js's router to navigate to the next project's page
-        // router.push(`/${nextProjectSlug}`);
+        router.push(`/${nextProjectSlug}`);
     };
 
     return (
