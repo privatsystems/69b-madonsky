@@ -53,6 +53,7 @@ export interface Project {
     related: Related[];
     images: ImageType[];
     index: number;
+    indexVideo: number;
     list: string[];
     listVideo: string[];
 

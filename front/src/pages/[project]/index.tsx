@@ -18,7 +18,7 @@ const horloge = '<svg viewBox="0 0 73 73" width="18" height="18"><path d="M36.5,
 
 const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
 
-    const { title, form, topics, year, text, related, listVideo, index } = content
+    const { title, form, topics, year, text, related, listVideo, indexVideo } = content
     const { site_name } = seo
     const documentationRef = useRef(null);
     // const router = useRouter()
@@ -60,9 +60,9 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
 
     const handleNextProject = () => {
         // Calculate the index of the next project
-        const nextProjectIndex = (index + 1) % listVideo.length;
+        const nextProjectIndex = (indexVideo + 1) % listVideo.length;
         const nextProjectSlug = listVideo[nextProjectIndex]; // Get the slug of the next project
-        console.log('nextProjectSlug', nextProjectSlug, nextProjectIndex, listVideo.length, index);
+        console.log('nextProjectSlug', nextProjectSlug, nextProjectIndex, listVideo.length, indexVideo);
         // Use Next.js's router to navigate to the next project's page
         // router.push(`/${nextProjectSlug}`);
     };
