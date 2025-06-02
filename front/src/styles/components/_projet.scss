@@ -76,7 +76,7 @@
     .images_wrapper {
 
         width: 100vw;
-        height: 60vh;
+        height: 100vh - 20px;
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
@@ -93,8 +93,8 @@
 
             width: 100vw;
             height: fit-content;
-            padding: 0vh 20vw;
-            padding-bottom: 5vh;
+            margin: 20vh;
+            height: 60vh;
 
 
             @include sizeone {
