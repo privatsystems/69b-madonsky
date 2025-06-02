@@ -91,7 +91,7 @@
 
         .scroller {
 
-            width: 100vw;
+            width: calc(100vw - 40vh);
             height: fit-content;
             margin: 20vh;
             height: 60vh;
