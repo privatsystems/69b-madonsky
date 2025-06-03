@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+
+import { useRef, useEffect, useState } from 'react';
 import Vimeo from '@u-wave/react-vimeo';
 
 type VimeoInternalPlayer = {
@@ -11,26 +12,25 @@ type VimeoComponent = {
 };
 
 const VimeoPlayer = ({ videoId }: { videoId: string }) => {
+    // On dit que playerRef peut être n'importe quel objet (on perd un peu de typage ici)
+    const playerRef = useRef<unknown>(null);
     const [ratio, setRatio] = useState(16 / 9);
-    const [vimeoInstance, setVimeoInstance] = useState<VimeoComponent | null>(null);
 
     const height = typeof window !== 'undefined' ? window.innerHeight * 0.6 : 600;
     const width = height * ratio;
 
-    // Quand on reçoit la vraie instance Vimeo, on récupère son player interne
     useEffect(() => {
-        if (!vimeoInstance) return;
-
         const fetchRatio = async () => {
             try {
-                // getInternalPlayer est une méthode sur l'instance Vimeo
-                const internalPlayer = vimeoInstance.getInternalPlayer();
+                // On force un cast ici, en gardant l'usage safe dans la fonction
+                const internalPlayer = (playerRef.current as VimeoComponent | null)?.getInternalPlayer?.();
                 if (!internalPlayer) return;
 
                 const [w, h] = await Promise.all([
                     internalPlayer.getVideoWidth(),
                     internalPlayer.getVideoHeight(),
                 ]);
+
                 if (w && h) setRatio(w / h);
             } catch (err) {
                 console.error('Erreur récupération ratio Vimeo:', err);
@@ -38,7 +38,7 @@ const VimeoPlayer = ({ videoId }: { videoId: string }) => {
         };
 
         fetchRatio();
-    }, [vimeoInstance, videoId]);
+    }, [videoId]);
 
     return (
         <div
@@ -50,10 +50,10 @@ const VimeoPlayer = ({ videoId }: { videoId: string }) => {
                 overflow: 'hidden',
             }}
         >
+            {/* @ts-expect-error Le typage du ref ne correspond pas exactement, on ignore ici */}
             <Vimeo
                 video={videoId}
-                // @ts-ignore
-                ref={setVimeoInstance as any} // callback ref pour récupérer l'instance
+                ref={playerRef as React.Ref<Vimeo>}
                 responsive={false}
                 controls
                 style={{
