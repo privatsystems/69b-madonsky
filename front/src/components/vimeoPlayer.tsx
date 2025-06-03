@@ -50,7 +50,6 @@ const VimeoPlayer = ({ videoId }: { videoId: string }) => {
                 overflow: 'hidden',
             }}
         >
-            {/* @ts-expect-error Le typage du ref ne correspond pas exactement, on ignore ici */}
             <Vimeo
                 video={videoId}
                 ref={playerRef as React.Ref<Vimeo>}
