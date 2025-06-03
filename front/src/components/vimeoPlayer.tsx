@@ -52,7 +52,8 @@ const VimeoPlayer = ({ videoId }: { videoId: string }) => {
         >
             <Vimeo
                 video={videoId}
-                ref={setVimeoInstance} // callback ref pour récupérer l'instance
+                // @ts-ignore
+                ref={setVimeoInstance as any} // callback ref pour récupérer l'instance
                 responsive={false}
                 controls
                 style={{
