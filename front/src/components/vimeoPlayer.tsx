@@ -48,19 +48,30 @@ const VimeoPlayer = ({ videoId }: { videoId: string }) => {
                 margin: '0 auto',
                 background: '#000',
                 overflow: 'hidden',
+                position: 'relative', // important
             }}
         >
-            <Vimeo
-                video={videoId}
-                ref={playerRef as React.Ref<Vimeo>}
-                responsive={false}
-                controls
+            <div
                 style={{
-                    width: `${width}px`,
-                    height: `${height}px`,
-                    display: 'block',
+                    width: '100%',
+                    height: '100%',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
                 }}
-            />
+            >
+                <Vimeo
+                    video={videoId}
+                    ref={playerRef as React.Ref<Vimeo>}
+                    responsive={false}
+                    controls
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        display: 'block',
+                    }}
+                />
+            </div>
         </div>
     );
 };
