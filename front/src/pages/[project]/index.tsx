@@ -12,6 +12,7 @@ import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 import { useRouter } from "next/router";
 import { SiteContext } from "@/context/siteContext";
 import Vimeo from '@u-wave/react-vimeo';
+import VimeoPlayer from "@/components/vimeoPlayer";
 
 
 const horloge = '<svg viewBox="0 0 73 73" width="18" height="18"><path d="M36.5,73C16.37,73,0,56.63,0,36.5S16.37,0,36.5,0s36.5,16.37,36.5,36.5-16.37,36.5-36.5,36.5ZM36.5,8c-15.71,0-28.5,12.79-28.5,28.5s12.79,28.5,28.5,28.5,28.5-12.79,28.5-28.5-12.79-28.5-28.5-28.5Z" /><polygon points="32.78 16.03 32.78 38.11 24.55 46.33 29.86 51.64 40.46 41.03 40.46 16.03 32.78 16.03" /></svg>'
@@ -26,7 +27,8 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
     const { setPage } = useContext(SiteContext)
     const [height, setHeight] = useState(0)
 
-    console.log('listvideo', listVideo)
+    console.log('videos =>', videos)
+
     useEffect(() => {
 
         setHeight(window.innerHeight)
@@ -62,7 +64,6 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
         // Calculate the index of the next project
         const nextProjectIndex = (indexVideo + 1) % listVideo.length;
         const nextProjectSlug = listVideo[nextProjectIndex]; // Get the slug of the next project
-        console.log('nextProjectSlug', nextProjectSlug, nextProjectIndex, listVideo.length, indexVideo);
         // Use Next.js's router to navigate to the next project's page
         router.push(`/${nextProjectSlug}`);
     };
@@ -79,9 +80,8 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
                     return (
                         <div className='images_wrapper' key={`${index}${video.videourl}`}>
                             <div className='scroller'>
-                                <Vimeo
-                                    video={video.videourl}
-                                    responsive
+                                <VimeoPlayer
+                                    videoId={video.videourl}
                                 />
                                 {video.legend && <div className='scroller_pass'>{video.legend.replace(/◊/g, horloge)}</div>}
                             </div>
