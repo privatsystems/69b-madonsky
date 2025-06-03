@@ -1,6 +1,4 @@
-'use client';
-
-import { useRef, useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import Vimeo from '@u-wave/react-vimeo';
 
 type VimeoInternalPlayer = {
@@ -8,39 +6,39 @@ type VimeoInternalPlayer = {
     getVideoHeight: () => Promise<number>;
 };
 
-type VimeoComponentRef = {
+type VimeoComponent = {
     getInternalPlayer: () => VimeoInternalPlayer;
 };
 
 const VimeoPlayer = ({ videoId }: { videoId: string }) => {
-    const playerRef = useRef<VimeoComponentRef | null>(null);
-    const [ratio, setRatio] = useState(16 / 9); // Fallback ratio
+    const [ratio, setRatio] = useState(16 / 9);
+    const [vimeoInstance, setVimeoInstance] = useState<VimeoComponent | null>(null);
 
-    // On utilise 60vh pour la hauteur
     const height = typeof window !== 'undefined' ? window.innerHeight * 0.6 : 600;
     const width = height * ratio;
 
+    // Quand on reçoit la vraie instance Vimeo, on récupère son player interne
     useEffect(() => {
+        if (!vimeoInstance) return;
+
         const fetchRatio = async () => {
             try {
-                const internalPlayer = playerRef.current?.getInternalPlayer?.();
+                // getInternalPlayer est une méthode sur l'instance Vimeo
+                const internalPlayer = vimeoInstance.getInternalPlayer();
                 if (!internalPlayer) return;
 
                 const [w, h] = await Promise.all([
                     internalPlayer.getVideoWidth(),
                     internalPlayer.getVideoHeight(),
                 ]);
-
-                if (w && h) {
-                    setRatio(w / h);
-                }
+                if (w && h) setRatio(w / h);
             } catch (err) {
                 console.error('Erreur récupération ratio Vimeo:', err);
             }
         };
 
         fetchRatio();
-    }, [videoId]);
+    }, [vimeoInstance, videoId]);
 
     return (
         <div
@@ -54,7 +52,7 @@ const VimeoPlayer = ({ videoId }: { videoId: string }) => {
         >
             <Vimeo
                 video={videoId}
-                ref={playerRef as any}
+                ref={setVimeoInstance} // callback ref pour récupérer l'instance
                 responsive={false}
                 controls
                 style={{

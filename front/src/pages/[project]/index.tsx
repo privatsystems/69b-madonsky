@@ -11,7 +11,6 @@ import gsap from 'gsap'
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 import { useRouter } from "next/router";
 import { SiteContext } from "@/context/siteContext";
-import Vimeo from '@u-wave/react-vimeo';
 import VimeoPlayer from "@/components/vimeoPlayer";
 
 
