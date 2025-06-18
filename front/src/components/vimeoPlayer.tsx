@@ -63,6 +63,7 @@ const VimeoPlayer = ({ videoId, videoLegend }: Props) => {
                 margin: '0 auto',
                 background: '#000',
                 overflow: 'hidden',
+                position: 'relative',
             }}
         >
             <div
