@@ -54,7 +54,6 @@ export default function Project({ content, videos, seo }: ProjectDatas) {
                 ease: 'power3.inOut',
             });
 
-
         }
     }
 
