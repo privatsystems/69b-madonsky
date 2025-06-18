@@ -1,7 +1,6 @@
 import Head from "next/head";
-import { GetServerSideProps, GetStaticPaths } from "next";
+import { GetServerSideProps } from "next";
 import fetchDatasProject from "@/utils/fetchDatasProject";
-import fetchDatasArchives from "@/utils/fetchDatasArchives";
 import { ProjectDatas } from "@/types";
 import Link from "next/link";
 import { useContext, useEffect, useRef, useState } from "react";
@@ -16,7 +15,7 @@ import VimeoPlayer from "@/components/vimeoPlayer";
 
 const horloge = '<svg viewBox="0 0 73 73" width="18" height="18"><path d="M36.5,73C16.37,73,0,56.63,0,36.5S16.37,0,36.5,0s36.5,16.37,36.5,36.5-16.37,36.5-36.5,36.5ZM36.5,8c-15.71,0-28.5,12.79-28.5,28.5s12.79,28.5,28.5,28.5,28.5-12.79,28.5-28.5-12.79-28.5-28.5-28.5Z" /><polygon points="32.78 16.03 32.78 38.11 24.55 46.33 29.86 51.64 40.46 41.03 40.46 16.03 32.78 16.03" /></svg>'
 
-const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
+export default function Project({ content, videos, seo }: ProjectDatas) {
 
     const { title, form, topics, year, text, related, listVideo, indexVideo } = content
     const { site_name } = seo
