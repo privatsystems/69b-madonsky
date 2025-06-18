@@ -48,7 +48,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
             props: {
                 content: content.content,
                 seo: content.seo
-            }, revalidate: 10,
+            }
         };
     } catch (error) {
         console.error('Failed to fetch data:', error);
