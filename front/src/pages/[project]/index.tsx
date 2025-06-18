@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticPaths } from "next";
 import fetchDatasProject from "@/utils/fetchDatasProject";
 import fetchDatasArchives from "@/utils/fetchDatasArchives";
 import { ProjectDatas } from "@/types";
@@ -107,7 +107,7 @@ const Project: React.FC<ProjectDatas> = ({ content, seo, videos }) => {
     );
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
     try {
         const { params } = context;
         const content = await fetchDatasProject(params?.project)
@@ -117,8 +117,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
                 content: content.content,
                 videos: content.videos,
                 seo: content.seo
-            },
-            revalidate: 10,
+            }
         };
     } catch (error) {
         console.error("Failed to fetch data:", error);
@@ -134,25 +133,3 @@ export const getStaticProps: GetStaticProps = async (context) => {
         };
     }
 };
-
-export const getStaticPaths: GetStaticPaths = async () => {
-    try {
-        const ArchivesDatas = await fetchDatasArchives();
-        return {
-            paths: ArchivesDatas.content.map((project) => ({
-                params: {
-                    project: project.slug
-                },
-            })),
-            fallback: "blocking",
-        };
-    } catch (error) {
-        console.error("Failed to fetch data:", error);
-        return {
-            paths: [],
-            fallback: "blocking",
-        };
-    }
-};
-
-export default Project

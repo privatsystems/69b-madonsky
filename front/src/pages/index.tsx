@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import fetchDatasArchives from "@/utils/fetchDatasArchives";
 import { ArchivesDatas } from "@/types";
 import NavArchive from "@/components/archive/navArchive";
@@ -42,7 +42,7 @@ const Archives: React.FC<ArchivesDatas> = ({ content, seo }) => {
 
 export default Archives
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   try {
     const content = await fetchDatasArchives();
     return {

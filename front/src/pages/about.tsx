@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { AboutDatas } from '../types';
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import fetchDatasAbout from "@/utils/fetchDatasAbout";
 import { useContext, useEffect } from "react";
 import { SiteContext } from "@/context/siteContext";
@@ -41,7 +41,7 @@ const About: React.FC<AboutDatas> = ({ content, seo }) => {
     );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
     try {
         const content = await fetchDatasAbout();
         return {
