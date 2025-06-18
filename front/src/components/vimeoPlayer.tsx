@@ -62,7 +62,6 @@ const VimeoPlayer = ({ videoId, videoLegend }: Props) => {
                 height,
                 margin: '0 auto',
                 background: '#000',
-                overflow: 'hidden',
                 position: 'relative',
             }}
         >
@@ -73,7 +72,10 @@ const VimeoPlayer = ({ videoId, videoLegend }: Props) => {
                     height: '100%',
                 }}
             />
-            {videoLegend && <div className='scroller_pass'>{videoLegend.replace(/◊/g, horloge)}</div>}
+            {videoLegend && <div className='scroller_pass' style={{
+                position: 'absolute',
+                top: height + 10
+            }}>{videoLegend.replace(/◊/g, horloge)}</div>}
 
         </div>
     );
