@@ -91,9 +91,9 @@
 
         .scroller {
 
-            width: calc(100vw - 40vh);
+            // width: calc(100vw - 40vh);
             height: fit-content;
-            margin: 20vh;
+            // margin: 20vh;
             height: 60vh;
 
 
@@ -107,6 +107,13 @@
             &_pass {
 
                 margin-top: 5px;
+
+            }
+
+            .iframe {
+
+                width: 100%;
+                height: 100%;
 
             }
 
