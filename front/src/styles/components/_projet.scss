@@ -75,19 +75,7 @@
 
     .images_wrapper {
 
-        width: 100vw;
-        height: calc(100vh - 20px);
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
-        flex-wrap: nowrap;
-
-        &:first-of-type {
-
-            justify-content: center;
-
-
-        }
+        padding-top: calc((40vh - 20px) / 2);
 
         .scroller {
 

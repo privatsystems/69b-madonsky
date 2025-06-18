@@ -79,8 +79,8 @@ export default function Project({ content, videos, seo }: ProjectDatas) {
                             <div className='scroller'>
                                 <VimeoPlayer
                                     videoId={video.videourl}
+                                    videoLegend={video.legend}
                                 />
-                                {video.legend && <div className='scroller_pass'>{video.legend.replace(/◊/g, horloge)}</div>}
                             </div>
                         </div>
                     )
