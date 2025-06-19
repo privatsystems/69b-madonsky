@@ -14,8 +14,8 @@ const VimeoPlayer = ({ videoId, videoLegend }: Props) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const playerRef = useRef<Player | null>(null);
     const [ratio, setRatio] = useState(16 / 9);
-    const [height, setHeight] = useState(600);
-    const [width, setWidth] = useState(1066);
+    const [height, setHeight] = useState(0);
+    const [width, setWidth] = useState(0);
 
     const { isMob } = useContext(SiteContext);
 
@@ -53,20 +53,25 @@ const VimeoPlayer = ({ videoId, videoLegend }: Props) => {
 
 
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            console.log('isMob', isMob);
+        function updateSize() {
+            if (typeof window === 'undefined') return;
+
             if (!isMob) {
-                setHeight(window.innerHeight * 0.6);
-                setWidth(window.innerHeight * 0.6 * ratio);
+                const h = window.innerHeight * 0.6;
+                setHeight(h);
+                setWidth(h * ratio);
             } else {
-
-                setWidth(window.innerWidth - 30);
-                setHeight((window.innerWidth - 30) * ratio);
-
+                const w = window.innerWidth - 30;
+                setWidth(w);
+                setHeight(w * ratio);
             }
         }
 
-    }, [ratio]);
+        updateSize();
+
+        window.addEventListener('resize', updateSize);
+        return () => window.removeEventListener('resize', updateSize);
+    }, [isMob, ratio]);
 
     return (
         <div
