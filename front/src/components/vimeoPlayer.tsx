@@ -61,6 +61,7 @@ const VimeoPlayer = ({ videoId, videoLegend }: Props) => {
                 setHeight(h);
                 setWidth(h * ratio);
             } else {
+                console.log('isMob', isMob, window.innerWidth);
                 const w = window.innerWidth - 30;
                 setWidth(w);
                 setHeight(w * ratio);
