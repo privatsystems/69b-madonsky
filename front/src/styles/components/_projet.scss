@@ -84,13 +84,14 @@
         .scroller {
 
             // width: calc(100vw - 40vh);
-            height: fit-content;
+
             // margin: 20vh;
             height: 60vh;
 
 
             @include sizeone {
 
+                height: fit-content;
                 padding: 0px 15px;
 
             }
