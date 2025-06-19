@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useContext } from 'react';
 import Player from '@vimeo/player';
+import { SiteContext } from '@/context/siteContext';
 
 type Props = {
     videoId: string; // Peut être un ID numérique sous forme de string ou une URL complète
@@ -14,6 +15,8 @@ const VimeoPlayer = ({ videoId, videoLegend }: Props) => {
     const [ratio, setRatio] = useState(16 / 9);
     const [height, setHeight] = useState(600);
     const [width, setWidth] = useState(1066);
+
+    const { isMob } = useContext(SiteContext)
 
     useEffect(() => {
         if (!containerRef.current || !videoId) return;
@@ -50,9 +53,17 @@ const VimeoPlayer = ({ videoId, videoLegend }: Props) => {
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            setHeight(window.innerHeight * 0.6);
-            setWidth(window.innerHeight * 0.6 * ratio);
+            if (!isMob) {
+                setHeight(window.innerHeight * 0.6);
+                setWidth(window.innerHeight * 0.6 * ratio);
+            } else {
+
+                setWidth(window.innerWidth - 30);
+                setHeight((window.innerWidth - 30) * ratio);
+
+            }
         }
+
     }, [ratio]);
 
     return (
