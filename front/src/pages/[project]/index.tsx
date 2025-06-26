@@ -68,23 +68,39 @@ export default function Project({ content, videos, seo }: ProjectDatas) {
 
     useEffect(() => {
         if (!isMob) return
-        let lastScrollY = window.scrollY;
-        const hero = document.querySelector('.hero');
+        let lastScroll = window.scrollY;
+        let ticking = false;
+        const threshold = 20; // Résistance : mouvement minimum requis
 
-        const onScroll = () => {
-            const currentScrollY = window.scrollY;
+        const handleScroll = () => {
+            const currentScroll = window.scrollY;
+            const delta = currentScroll - lastScroll;
 
-            if (!hero) return;
+            if (Math.abs(delta) < threshold) return;
 
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                // Scrolling down
-                hero.classList.add('hide-hero');
-            } else if (currentScrollY < lastScrollY) {
-                // Scrolling up
-                hero.classList.remove('hide-hero');
+            const header = document.querySelector('.hero');
+
+            if (header) {
+                if (delta > 0) {
+                    // Scroll down → hide
+                    header.classList.add('hide');
+                } else {
+                    // Scroll up → show
+                    header.classList.remove('hide');
+                }
             }
 
-            lastScrollY = currentScrollY;
+            lastScroll = currentScroll;
+        };
+
+        const onScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    handleScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
 
         window.addEventListener('scroll', onScroll);
