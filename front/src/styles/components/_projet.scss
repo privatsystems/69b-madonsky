@@ -22,11 +22,11 @@
             width: 100vw;
             transition: transform 0.3s ease-in-out;
 
-            .hero.hide-hero {
-                transform: translateY(-100%);
-                pointer-events: none;
-            }
+        }
 
+        &.hide-hero {
+            transform: translateY(-100%);
+            pointer-events: none;
         }
 
         .button_info {
@@ -68,6 +68,12 @@
 
             line {
                 stroke: $gris;
+
+                @include sizeone {
+
+                    stroke: black;
+
+                }
             }
 
             @include sizeone {
