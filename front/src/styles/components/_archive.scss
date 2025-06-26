@@ -294,7 +294,7 @@
         }
 
         text-transform: uppercase;
-        border-bottom: 1.85px solid black;
+        border-bottom: 1px solid black;
         padding-bottom: 7px;
         padding-top: 101px;
 
@@ -343,7 +343,7 @@
 
     &_line {
 
-        border-bottom: 1.85px solid transparent;
+        border-bottom: 1px solid transparent;
         line-height: 1;
 
         @include sizeone {
@@ -355,7 +355,7 @@
 
         &:hover {
 
-            border-bottom: 1.85px solid black;
+            border-bottom: 1px solid black;
             color: black;
         }
 
