@@ -24,6 +24,7 @@ export default function Project({ content, videos, seo }: ProjectDatas) {
     const [textM, setTextM] = useState(text)
     const { setPage } = useContext(SiteContext)
     const [height, setHeight] = useState(0)
+    const { isMob } = useContext(SiteContext)
 
     console.log('videos =>', videos)
 
@@ -66,6 +67,7 @@ export default function Project({ content, videos, seo }: ProjectDatas) {
     };
 
     useEffect(() => {
+        if (!isMob) return
         let lastScrollY = window.scrollY;
         const hero = document.querySelector('.hero');
 
