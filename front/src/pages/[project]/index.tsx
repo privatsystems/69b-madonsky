@@ -65,6 +65,30 @@ export default function Project({ content, videos, seo }: ProjectDatas) {
         router.push(`/${nextProjectSlug}`);
     };
 
+    useEffect(() => {
+        let lastScrollY = window.scrollY;
+        const hero = document.querySelector('.hero');
+
+        const onScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            if (!hero) return;
+
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Scrolling down
+                hero.classList.add('hide-hero');
+            } else if (currentScrollY < lastScrollY) {
+                // Scrolling up
+                hero.classList.remove('hide-hero');
+            }
+
+            lastScrollY = currentScrollY;
+        };
+
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
     return (
         <>
             <Head>
