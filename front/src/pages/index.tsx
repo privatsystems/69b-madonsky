@@ -26,6 +26,7 @@ const Archives: React.FC<ArchivesDatas> = ({ content, seo }) => {
       <Head>
         <title>{`${site_name} | ${site_tagline}`}</title>
         <meta name="description" content={`${site_description}`} />
+
         <meta key="og_title" property="og:title" content={`${site_name} | ${site_tagline}`} />
         <meta key="og_description" property="og:description" content={`${site_description}`} />
         {image_link && <meta key="og_image" property="og:image" content={`${image_link}`} />}
